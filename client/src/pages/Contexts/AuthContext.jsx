@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
           
           // Verify token and get user data
-          const response = await axios.get(`http://localhost:5000/api/auth/me`);
+          const response = await axios.get(`https://supreme-invention-pq6rv5v67j92wv7-5000.app.github.dev/api/auth/me`);
           
           if (response.data.success) {
             setUser(response.data.user);
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     
     try {
-      const response = await axios.post(`http://localhost:5000/api/auth/register`, userData);
+      const response = await axios.post(`https://supreme-invention-pq6rv5v67j92wv7-5000.app.github.dev/api/auth/register`, userData);
       
       if (response.data.success) {
         return { success: true, message: 'Registration successful. Please log in.' };
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     
     try {
-      const response = await axios.post(`http://localhost:5000/api/auth/login`, credentials);
+      const response = await axios.post(`https://supreme-invention-pq6rv5v67j92wv7-5000.app.github.dev/api/auth/login`, credentials);
       
       if (response.data.success) {
         const { token, user } = response.data;
